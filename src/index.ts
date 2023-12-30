@@ -1,6 +1,6 @@
-import { Server } from "http";
 import app from "./app";
 import config from "./config";
+import { Server } from "http";
 
 const root = () => {
   try {
