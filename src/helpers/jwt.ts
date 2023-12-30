@@ -4,7 +4,7 @@ import { JwtPayload, Secret, sign, verify } from "jsonwebtoken";
 const createToken = (
   payload: Record<string, unknown>,
   tokenType: "access" | "refresh"
-) => {
+): string => {
   if (tokenType === "access") {
     return sign(payload, config.jwt.secret as Secret, {
       expiresIn: config.jwt.expires_in,
