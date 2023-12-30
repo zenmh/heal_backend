@@ -1,6 +1,6 @@
 import cors from "cors";
-import express, { Application, NextFunction, Request, Response } from "express";
 import cookieParser from "cookie-parser";
+import express, { Application, NextFunction, Request, Response } from "express";
 
 const app: Application = express();
 
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Test route
-app.get("/", async (req: Request, res: Response) => {
+app.get("/test", async (req: Request, res: Response) => {
   res.json("Heal server is on 🔥 💧 🔥");
 });
 
