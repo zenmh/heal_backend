@@ -27,3 +27,5 @@ const signUp = async (data: User): Promise<ISignUpResponse> => {
 
   return { accessToken, refreshToken, result: user };
 };
+
+export const AuthService = { signUp };
