@@ -7,6 +7,6 @@ const router = Router();
 
 const { signUp } = AuthController;
 
-router.post("/singup", validateRequest(ZSingUp), signUp);
+router.post("/signup", validateRequest(ZSingUp), signUp);
 
 export const AuthRoutes = router;
