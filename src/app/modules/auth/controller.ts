@@ -22,4 +22,20 @@ const signUp = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const AuthController = { signUp };
+const signIn = catchAsync(async (req: Request, res: Response) => {
+  const { accessToken, refreshToken } = await AuthService.singIn(req.body);
+
+  res.cookie("refreshToken", refreshToken, {
+    secure: config.env === "production",
+    httpOnly: true,
+  });
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "User sign in successfully!",
+    data: { accessToken },
+  });
+});
+
+export const AuthController = { signUp, signIn };

@@ -52,4 +52,4 @@ const singIn = async ({
   return { accessToken, refreshToken };
 };
 
-export const AuthService = { signUp };
+export const AuthService = { signUp, singIn };
