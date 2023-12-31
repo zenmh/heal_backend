@@ -1,5 +1,10 @@
 import { User } from "@prisma/client";
 
+type ISignIn = {
+  email: string;
+  password: string;
+};
+
 type ISignInResponse = {
   accessToken: string;
   refreshToken?: string;
@@ -9,4 +14,4 @@ type ISignUpResponse = {
   result: User;
 } & ISignInResponse;
 
-export { ISignInResponse, ISignUpResponse };
+export { ISignIn, ISignInResponse, ISignUpResponse };
