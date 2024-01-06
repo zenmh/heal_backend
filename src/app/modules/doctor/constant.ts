@@ -7,6 +7,15 @@ const doctorSearchableFields: string[] = [
   "speciality",
 ];
 
+const doctorFilterableFields: string[] = [
+  "searchTerm",
+  "id",
+  "email",
+  "contactNo",
+  "branch",
+  "speciality",
+];
+
 const select = {
   id: true,
   name: true,
@@ -22,4 +31,4 @@ const select = {
   updatedAt: true,
 };
 
-export { doctorSearchableFields, select };
+export { doctorSearchableFields, doctorFilterableFields, select };
