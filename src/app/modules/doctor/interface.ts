@@ -1,3 +1,7 @@
+import { Doctor } from "@prisma/client";
+
+type IDoctorWithoutPassword = Omit<Doctor, "password">;
+
 type IDoctorFilters = {
   searchTerm?: string;
   id?: string;
@@ -6,4 +10,4 @@ type IDoctorFilters = {
   branch?: string;
 };
 
-export { IDoctorFilters };
+export { IDoctorWithoutPassword, IDoctorFilters };
