@@ -6,7 +6,7 @@ const router = Router();
 
 [
   { path: "/auth", route: AuthRoutes },
-  { path: "/doctor", route: DoctorRoutes },
+  { path: "/doctors", route: DoctorRoutes },
 ].forEach(({ path, route }) => router.use(path, route));
 
 export const routes = router;

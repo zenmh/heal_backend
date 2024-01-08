@@ -6,14 +6,16 @@ import auth from "../../middlewares/auth";
 import { Role } from "@prisma/client";
 
 const router = Router();
-const { createDoctor } = DoctorController;
+const { createDoctor, getDoctors } = DoctorController;
 const { ADMIN, SUPER_ADMIN } = Role;
 
-router.post(
-  "/",
-  auth(ADMIN, SUPER_ADMIN),
-  validateRequest(ZCreateDoctor),
-  createDoctor
-);
+router
+  .post(
+    "/",
+    auth(ADMIN, SUPER_ADMIN),
+    validateRequest(ZCreateDoctor),
+    createDoctor
+  )
+  .get("/", getDoctors);
 
 export const DoctorRoutes = router;

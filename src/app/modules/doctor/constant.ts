@@ -9,7 +9,7 @@ const doctorSearchableFields: string[] = [
 
 const doctorFilterableFields: string[] = [
   "searchTerm",
-  "id",
+  "name",
   "email",
   "contactNo",
   "branch",
