@@ -9,13 +9,24 @@ import paginationFields from "../../../constants/pagination";
 import { IDoctorWithoutPassword } from "./interface";
 
 const createDoctor = catchAsync(async (req: Request, res: Response) => {
-  const result = await DoctorService.createDoctor(req.body);
+  const data = await DoctorService.createDoctor(req.body);
 
   sendResponse<Doctor>(res, {
     statusCode: 200,
     success: true,
     message: "Doctor created successfully!!",
-    data: result,
+    data,
+  });
+});
+
+const getDoctor = catchAsync(async (req: Request, res: Response) => {
+  const data = await DoctorService.getDoctor(req.params.id);
+
+  sendResponse<IDoctorWithoutPassword>(res, {
+    statusCode: 200,
+    success: true,
+    message: "Doctor retrieved successfully!",
+    data,
   });
 });
 
@@ -34,4 +45,4 @@ const getDoctors = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const DoctorController = { createDoctor, getDoctors };
+export const DoctorController = { createDoctor, getDoctor, getDoctors };
