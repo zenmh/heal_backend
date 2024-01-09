@@ -4,8 +4,8 @@ import { AppointmentService } from "./service";
 import sendResponse from "../../../shared/sendResponse";
 import { Appointment } from "@prisma/client";
 
-const createAppointment = catchAsync(async (req: Request, res: Response) => {
-  const data = await AppointmentService.createAppointment(req.body);
+const bookAnAppointment = catchAsync(async (req: Request, res: Response) => {
+  const data = await AppointmentService.bookAnAppointment(req.body);
 
   sendResponse<Appointment>(res, {
     statusCode: 200,
@@ -15,4 +15,4 @@ const createAppointment = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const AppointmentController = { createAppointment };
+export const AppointmentController = { bookAnAppointment };
