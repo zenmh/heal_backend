@@ -81,8 +81,8 @@ model Doctor {
   speciality Speciality
   branch     Branch     @default(DHAKA)
 
-  reviews  DoctorReview[]
-  bookings Booking[]
+  reviews      DoctorReview[]
+  appointments Appointment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -90,7 +90,7 @@ model Doctor {
   @@map("doctors")
 }
 
-model Booking {
+model Appointment {
   id String @id @default(uuid())
 
   date      String
@@ -105,5 +105,5 @@ model Booking {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("bookings")
+  @@map("appointments")
 }
