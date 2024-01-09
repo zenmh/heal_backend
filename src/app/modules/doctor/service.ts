@@ -37,6 +37,14 @@ const createDoctor = async (data: Doctor): Promise<Doctor> => {
   return doctor;
 };
 
+const getDoctor = async (id: string): Promise<IDoctorWithoutPassword> => {
+  const doctor = await prisma.doctor.findUnique({ where: { id }, select });
+
+  if (!doctor) throw new ApiError(404, "Doctor not found!!");
+
+  return doctor;
+};
+
 const getDoctors = async (
   { searchTerm, ...filtersData }: IDoctorFilters,
   options: IPaginationOptions
@@ -81,4 +89,4 @@ const getDoctors = async (
   };
 };
 
-export const DoctorService = { createDoctor, getDoctors };
+export const DoctorService = { createDoctor, getDoctor, getDoctors };
